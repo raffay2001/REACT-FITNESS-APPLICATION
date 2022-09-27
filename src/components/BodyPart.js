@@ -13,8 +13,9 @@ const BodyPart = ({ item, bodyPart, setBodyPart }) => {
         backgroundColor: "#FFFFF",
         borderBottomLeftRadius: "20px",
         cursor: "pointer",
-        width:"110px",
+        width: "110px",
       }}
+      onClick={() => setBodyPart(item)}
     >
       <img src={Icon} alt="dumbell" style={{ width: "30px", height: "30px" }} />
       <Typography
