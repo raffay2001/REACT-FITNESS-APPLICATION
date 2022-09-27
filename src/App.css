@@ -9,6 +9,11 @@ body {
   box-sizing: border-box;
 }
 
+*::selection{
+  color: #FF2625;
+  background-color: lightgrey;
+}
+
 ::-webkit-scrollbar {
   width: 0px;
 }
