@@ -1,21 +1,35 @@
 import React from "react";
-import { Box } from "@mui/material";
+import { Box, Typography, Stack } from "@mui/material";
 import BodyPart from "./BodyPart";
 
 const HorizontalScrollBar = ({ data, bodyPart, setBodyPart }) => {
   return (
-    <div>
+    <Box
+      sx={{
+        display: "flex",
+        flexWrap: "wrap",
+        justifyContent: { xs: "center", md: "start", sm: "start" },
+        alignItems: "center",
+        gap: "20px",
+      }}
+    >
       {data.map((item) => (
         <Box
           key={item.id || item}
           itemID={item.id || item}
           title={item.id || item}
-          m="0 40px"
+          m="10px 40px"
+          sx={{
+            border: "1px solid #f17b7b",
+            borderTop: bodyPart === item ? "4px solid #FF2625" : "",
+            padding: "20px",
+            borderRadius: "10px",
+          }}
         >
           <BodyPart item={item} bodyPart={bodyPart} setBodyPart={setBodyPart} />
         </Box>
       ))}
-    </div>
+    </Box>
   );
 };
 
