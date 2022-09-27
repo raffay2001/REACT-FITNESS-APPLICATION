@@ -24,6 +24,7 @@ const HorizontalScrollBar = ({ data, bodyPart, setBodyPart }) => {
             borderTop: bodyPart === item ? "4px solid #FF2625" : "",
             padding: "20px",
             borderRadius: "10px",
+            cursor: "pointer",
           }}
         >
           <BodyPart item={item} bodyPart={bodyPart} setBodyPart={setBodyPart} />
