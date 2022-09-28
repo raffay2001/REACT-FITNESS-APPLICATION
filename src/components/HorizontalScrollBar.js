@@ -1,8 +1,9 @@
 import React from "react";
 import { Box, Typography, Stack } from "@mui/material";
 import BodyPart from "./BodyPart";
+import ExerciseCard from "./ExerciseCard";
 
-const HorizontalScrollBar = ({ data, bodyPart, setBodyPart }) => {
+const HorizontalScrollBar = ({ data, bodyPart, setBodyPart, isBodyParts }) => {
   return (
     <Box
       sx={{
@@ -20,14 +21,22 @@ const HorizontalScrollBar = ({ data, bodyPart, setBodyPart }) => {
           title={item.id || item}
           m="10px 40px"
           sx={{
-            border: "1px solid #f17b7b",
+            border: isBodyParts ? "1px solid #f17b7b" : "",
             borderTop: bodyPart === item ? "4px solid #FF2625" : "",
             padding: "20px",
             borderRadius: "10px",
             cursor: "pointer",
           }}
         >
-          <BodyPart item={item} bodyPart={bodyPart} setBodyPart={setBodyPart} />
+          {isBodyParts ? (
+            <BodyPart
+              item={item}
+              bodyPart={bodyPart}
+              setBodyPart={setBodyPart}
+            />
+          ) : (
+            <ExerciseCard exercise={item} />
+          )}
         </Box>
       ))}
     </Box>
