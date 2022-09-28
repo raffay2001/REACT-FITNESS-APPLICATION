@@ -14,7 +14,7 @@ const Footer = () => {
         pt="24px"
       >
         <img src={Logo} alt="footer-logo" width="200px" height="40px" />
-        <Typography variant="h5">
+        <Typography variant="h5" pb="40px" mt="20px">
         Made with ❤️ by Abdul Raffay.
         </Typography>
       </Stack>
