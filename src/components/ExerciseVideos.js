@@ -4,7 +4,7 @@ import { Box, Stack, Typography } from "@mui/material";
 const ExerciseVideos = ({ exerciseVidoes, name }) => {
   console.log(exerciseVidoes);
   return (
-    <Box sx={{ marginTop: { lg: "200px", xs: "20px" } }} p="20px">
+    <Box sx={{ marginTop: { lg: "100px", xs: "20px" } }} p="20px">
       <Typography
         sx={{ fontSize: { lg: "44px", xs: "25px" }, ml: "20px" }}
         fontWeight={700}
@@ -16,7 +16,7 @@ const ExerciseVideos = ({ exerciseVidoes, name }) => {
         <span style={{ color: "#FF2625", textTransform: "capitalize" }}>
           {name}
         </span>{" "}
-        Vidoes
+        Vidoes.
       </Typography>
       <Stack
         justifyContent="flex-start"

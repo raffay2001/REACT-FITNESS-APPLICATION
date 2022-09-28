@@ -3,6 +3,7 @@ import Pagination from "@mui/material/Pagination";
 import { Box, Stack, Typography } from "@mui/material";
 import { exerciseOptions, fetchData } from "../utils/fetchData";
 import ExerciseCard from "./ExerciseCard";
+import Loader from "./Loader";
 
 const Exercises = ({ exercises, setExercises, bodyPart }) => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -10,10 +11,11 @@ const Exercises = ({ exercises, setExercises, bodyPart }) => {
 
   const indexOfLastExercise = currentPage * exercisesPerPage;
   const indexOfFirstExercise = indexOfLastExercise - exercisesPerPage;
-  const currentExercises = exercises.slice(
-    indexOfFirstExercise,
-    indexOfLastExercise
-  );
+  // console.log("Exercises are: " + JSON.stringify(exercises));
+  const currentExercises =
+    exercises.length > 0
+      ? exercises.slice(indexOfFirstExercise, indexOfLastExercise)
+      : [];
 
   const paginate = (e, value) => {
     setCurrentPage(value);
@@ -23,25 +25,30 @@ const Exercises = ({ exercises, setExercises, bodyPart }) => {
   useEffect(() => {
     const fetchExercisesData = async () => {
       let exercisesData = [];
-      if (bodyPart === "all") {
-        exercisesData = await fetchData(
-          "https://exercisedb.p.rapidapi.com/exercises",
-          exerciseOptions
-        );
-        setExercises(exercisesData);
-      } else {
-        exercisesData = await fetchData(
-          `https://exercisedb.p.rapidapi.com/exercises/bodyPart/${bodyPart}`
-        );
-        setExercises(exercisesData);
-      }
+      exercisesData = await fetchData(
+        "https://exercisedb.p.rapidapi.com/exercises",
+        exerciseOptions
+      );
+      setExercises(exercisesData);
+      // if (bodyPart === "all") {
+      //   exercisesData = await fetchData(
+      //     "https://exercisedb.p.rapidapi.com/exercises",
+      //     exerciseOptions
+      //   );
+      //   setExercises(exercisesData);
+      // } else {
+      //   exercisesData = await fetchData(
+      //     `https://exercisedb.p.rapidapi.com/exercises/bodyPart/${bodyPart}`
+      //   );
+      //   setExercises(exercisesData);
+      // }
     };
     fetchExercisesData();
-  }, [bodyPart]);
+  }, []);
 
   return (
-    <Box id="exercises" sx={{ marginTop: { lg: "110px" } }} mt="50px" p="20px">
-      <Typography variant="h4" mb="60px" fontWeight={600} sx={{ml: "3rem"}}>
+    <Box id="exercises" sx={{ marginTop: { lg: "10px" } }} mt="50px" p="20px">
+      <Typography variant="h4" mb="60px" fontWeight={600} sx={{ ml: "3rem" }}>
         Showing Results.
       </Typography>
       <Stack
@@ -50,12 +57,12 @@ const Exercises = ({ exercises, setExercises, bodyPart }) => {
         flexWrap="wrap"
         justifyContent="center"
       >
-        {currentExercises.map((exercise, index) => (
+        {exercises.length > 0 ? currentExercises.map((exercise, index) => (
           <ExerciseCard
             key={exercise.name.toString() + index.toString()}
             exercise={exercise}
           />
-        ))}
+        )) : <Loader />}
       </Stack>
       <Stack marginTop="100px" alignItems="center">
         {exercises.length > 9 && (

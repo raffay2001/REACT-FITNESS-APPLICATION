@@ -9,9 +9,9 @@ const HorizontalScrollBar = ({ data, bodyPart, setBodyPart, isBodyParts }) => {
       sx={{
         display: "flex",
         flexWrap: "wrap",
-        justifyContent: { xs: "center", md: "start", sm: "start" },
+        justifyContent: { xs: "center", md: isBodyParts ? "start" : "center", sm: isBodyParts ? "start" : "center" },
         alignItems: "center",
-        gap: "20px",
+        gap: "0px",
       }}
     >
       {data.map((item) => (

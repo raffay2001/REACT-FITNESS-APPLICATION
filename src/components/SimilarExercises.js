@@ -41,7 +41,7 @@ import Loader from "./Loader";
 const SimilarExercises = ({ targetMuscleExercises, equipmentExercises }) => (
   <Box sx={{ mt: { lg: "100px", xs: "0px" } }}>
     <Typography
-      sx={{ fontSize: { lg: "44px", xs: "25px" }, ml: "20px" }}
+      sx={{ fontSize: { lg: "44px", xs: "25px" }, ml: "20px", mt: {xs: "4rem"} }}
       fontWeight={700}
       color="#000"
       mb="33px"

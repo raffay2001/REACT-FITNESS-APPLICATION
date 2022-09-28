@@ -74,6 +74,7 @@ html{
   width: 400px;
   height: 445px;
   background: #fff;
+  border: 1.5px solid rgb(227, 227, 227);
   border-top: 4px solid #ff2625;
   border-bottom-left-radius: 20px;
   text-decoration: none;
