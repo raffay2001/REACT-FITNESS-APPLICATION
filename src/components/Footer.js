@@ -4,7 +4,7 @@ import Logo from "../assets/images/Logo-1.png";
 
 const Footer = () => {
   return (
-    <Box mt="80px" bgcolor="#FFF3F4">
+    <Box mt="40px" bgcolor="#FFF3F4">
       <Stack
         gap="40px"
         sx={{

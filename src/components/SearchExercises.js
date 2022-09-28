@@ -46,7 +46,11 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
         mb="50px"
         textAlign="center"
       >
-        Awesome Exercises You <br /> Should Know
+        Awesome{" "}
+        <span style={{ color: "#FF2625", textTransform: "capitalize" }}>
+          Exercises
+        </span>{" "}
+        You <br /> Should Know.
       </Typography>
       <Box position="relative" mb="72px">
         <TextField
@@ -80,6 +84,17 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
         </Button>
       </Box>
       <Box sx={{ position: "relative", width: "100%", padding: "20px" }}>
+        <Typography
+          fontWeight={700}
+          sx={{ fontSize: { lg: "44px", xs: "30px" } }}
+          mb="50px"
+          textAlign="center"
+        >
+          All{" "}
+          <span style={{ color: "#FF2625", textTransform: "capitalize" }}>
+            Categories.
+          </span>
+        </Typography>
         <HorizontalScrollBar
           data={bodyParts}
           bodyPart={bodyPart}
